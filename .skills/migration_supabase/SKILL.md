@@ -44,3 +44,4 @@ description: Aplica migrações no Supabase com segurança e sincroniza tipos Ty
 - Ação:
   - Ajustar policy para permitir leitura/escrita conforme regra de negócio.
   - Fazer teste negativo: usuário não autorizado deve receber erro/vazio.
+

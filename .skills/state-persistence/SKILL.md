@@ -102,3 +102,4 @@ const App = () => (
 const { state, setQuery, setResults } = useMyContext();
 // state.query, state.results
 ```
+

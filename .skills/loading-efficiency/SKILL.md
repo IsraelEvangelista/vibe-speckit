@@ -158,3 +158,4 @@ export function useOptimizedData<T>(
 
 - Use cache: navegação entre itens já carregados, busca local, filtros locais.
 - Não use cache: mudança de período principal que exige novo fetch; após mutação, use `refetch()`.
+

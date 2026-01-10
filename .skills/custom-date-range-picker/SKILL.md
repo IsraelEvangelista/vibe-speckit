@@ -131,7 +131,7 @@ import { ptBR } from "date-fns/locale";
   }}
   numberOfMonths={2}
   locale={ptBR}
-/>
+/>;
 ```
 
 ### Exemplo 2: Regras de comportamento suportadas
@@ -147,3 +147,4 @@ import { ptBR } from "date-fns/locale";
 - https://daypicker.dev/guides/custom-selections
 - react-day-picker v8.x
 - shadcn/ui Calendar
+

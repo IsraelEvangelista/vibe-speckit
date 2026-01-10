@@ -33,3 +33,4 @@ description: Guia rápido para migration no Supabase e atualização de tipos Ty
 - Aplicar localmente
 - `npm run update-types`
 - Rodar build/typecheck do projeto
+

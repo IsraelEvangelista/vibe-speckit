@@ -50,3 +50,4 @@ description: Sincroniza documentação de governança após epics/tasks complexa
   - Atualize EPICS.md para refletir o que foi concluído e o que ficou de follow-up.
   - Atualize AGENTS.md com a nova convenção de estrutura e os comandos de validação.
   - Não atualize BUG.md se não houve correção de problema específico.
+

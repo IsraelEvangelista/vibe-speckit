@@ -68,3 +68,4 @@ description: Mitiga React2Shell (RCE) em Next.js/React e valida build sem downgr
 - Aplicar `npx fix-react2shell-next`.
 - Fazer reinstalação limpa (dev executa externamente).
 - Rodar build e corrigir incompatibilidades sem downgrade.
+

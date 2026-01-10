@@ -102,3 +102,4 @@ POST /message/text/{instanceName}
 - https://docs.uazapi.com
 - https://docs.uazapi.com/endpoint/post/instance~connect
 - https://docs.uazapi.com/endpoint/get/instance~status
+
