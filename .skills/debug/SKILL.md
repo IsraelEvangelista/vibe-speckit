@@ -1,5 +1,5 @@
 ---
-name: debug-qa-check
+name: debug
 description: Diagnostica e corrige falhas de type-check, lint e build com validação final.
 ---
 

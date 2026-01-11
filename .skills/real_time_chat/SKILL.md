@@ -1,5 +1,5 @@
 ---
-name: realtime-chat-supabase
+name: real_time_chat
 description: Implementa, debuga e mantém chat realtime com Supabase e React Context.
 ---
 

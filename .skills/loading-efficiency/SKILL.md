@@ -1,5 +1,5 @@
 ---
-name: loading-efficiency-cache
+name: loading-efficiency
 description: Evita refetch redundante com cache via useRef e filtros locais via useMemo.
 ---
 

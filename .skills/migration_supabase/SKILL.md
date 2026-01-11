@@ -1,5 +1,5 @@
 ---
-name: supabase-migration-types
+name: migration-supabase
 description: Aplica migrações no Supabase com segurança e sincroniza tipos TypeScript.
 ---
 

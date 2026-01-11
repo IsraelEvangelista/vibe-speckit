@@ -1,5 +1,5 @@
 ---
-name: uazapi-whatsapp-integration
+name: use-uazapi
 description: Integra WhatsApp via Uazapi GO v2 usando instâncias, QR, status e envio de mensagens.
 ---
 

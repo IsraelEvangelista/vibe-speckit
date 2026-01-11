@@ -1,5 +1,5 @@
 ---
-name: security-audit
+name: security
 description: Audita segredos, logs e acesso a dados, evitando exposição e configurações inseguras.
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: state-persistence-context
+name: state-persistence
 description: Persiste estado entre páginas usando React Context, sem refazer buscas/filtros.
 ---
 

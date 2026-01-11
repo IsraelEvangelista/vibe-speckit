@@ -1,5 +1,5 @@
 ---
-name: context-governance-sync
+name: context-sync
 description: Sincroniza documentação de governança após epics/tasks complexas para evitar drift.
 ---
 

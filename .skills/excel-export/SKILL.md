@@ -1,5 +1,5 @@
 ---
-name: excel-export-browser
+name: excel-export
 description: Exporta .xlsx no browser com nome correto, evitando interferência do GTM.
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: react2shell-mitigation
+name: react25shell
 description: Mitiga React2Shell (RCE) em Next.js/React e valida build sem downgrade inseguro.
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: ui-component-creation
+name: ui-component
 description: Padroniza criação de componentes de UI com consistência e acessibilidade.
 ---
 
