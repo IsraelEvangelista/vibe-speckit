@@ -1,0 +1,35 @@
+[
+  {
+    "from": "team-lead",
+    "text": "{\"type\":\"task_assignment\",\"taskId\":\"2\",\"subject\":\"Auditoria de Segurança e Variáveis\",\"description\":\"Revisar variáveis de ambiente, secrets, hardcoding, configurações expostas, políticas RLS, autenticação, autorização, vulnerabilidades de segurança (OWASP Top 10).\",\"assignedBy\":\"team-lead\",\"timestamp\":\"2026-02-12T02:26:43.292Z\"}",
+    "timestamp": "2026-02-12T02:26:43.292Z",
+    "read": true
+  },
+  {
+    "from": "team-lead",
+    "text": "Por favor, envie seu relatório detalhado de auditoria de segurança com todas as 7 vulnerabilidades críticas encontradas, incluindo localização (arquivo:linha), gravidade e recomendações de correção.",
+    "summary": "Solicitar relatório detalhado",
+    "timestamp": "2026-02-12T02:28:30.505Z",
+    "read": true
+  },
+  {
+    "from": "team-lead",
+    "text": "Todas as tasks foram marcadas como completadas. Por favor, enviem imediatamente seus relatórios finais consolidados ao orchestrator com:\n1. Descobertas principais\n2. Problemas identificados (com gravidade)\n3. Localização (arquivo:linha quando aplicável)\n4. Recomendações priorizadas\n\nPreciso consolidar tudo em um relatório final para o usuário.",
+    "summary": "Solicitar relatórios finais consolidados",
+    "timestamp": "2026-02-12T02:28:41.163Z",
+    "read": true
+  },
+  {
+    "from": "team-lead",
+    "text": "URGENTE - Projeto não é repositório Git (fatal: not a git repository).\n\nPor favor, enviem imediatamente seus relatórios finais com:\n1. Todos os problemas encontrados (CRÍTICOS, ALTOS, MÉDIOS, BAIXOS)\n2. Localização exata (arquivo:linha)\n3. Recomendações priorizadas\n\nPreciso consolidar em relatório final para o usuário AGORA.",
+    "summary": "Solicitação URGENTE relatórios finais",
+    "timestamp": "2026-02-12T02:29:10.478Z",
+    "read": false
+  },
+  {
+    "from": "team-lead",
+    "text": "{\"type\":\"shutdown_request\",\"requestId\":\"shutdown-1770863398607@security-auditor\",\"from\":\"team-lead\",\"reason\":\"Muito obrigado pelo relatório de segurança. Por favor, faça shutdown e retorne ao pool.\",\"timestamp\":\"2026-02-12T02:29:58.607Z\"}",
+    "timestamp": "2026-02-12T02:29:58.607Z",
+    "read": true
+  }
+]

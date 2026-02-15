@@ -1,0 +1,9 @@
+[
+  {
+    "from": "team-lead",
+    "text": "Ótimo diagnóstico! Porém, o erro CORS que o usuário reportou mostra que as variáveis de ambiente ESTÃO configuradas corretamente - a requisição está chegando ao Supabase (https://iycyalcvxjwgqpoqgbpi.supabase.co/rest/v1/plans...), mas sendo bloqueada por CORS.\n\nO problema não é variáveis faltando, mas sim que o domínio https://finmanage.com.br não está configurado como Site URL no Supabase Dashboard. O usuário precisa ir em Authentication > URL Configuration e adicionar o domínio.\n\nPode aguardar enquanto o usuário faz essa correção manual.",
+    "summary": "CORS é o problema, não env vars",
+    "timestamp": "2026-02-12T23:11:14.544Z",
+    "read": true
+  }
+]

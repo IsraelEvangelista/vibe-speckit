@@ -1,0 +1,62 @@
+{
+  "version": 2,
+  "plugins": {
+    "glm-plan-usage@zai-coding-plugins": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\isa_e\\.claude\\plugins\\cache\\zai-coding-plugins\\glm-plan-usage\\0.0.1",
+        "version": "0.0.1",
+        "installedAt": "2026-02-11T20:30:56.843Z",
+        "lastUpdated": "2026-02-11T20:30:56.843Z"
+      }
+    ],
+    "glm-plan-bug@zai-coding-plugins": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\isa_e\\.claude\\plugins\\cache\\zai-coding-plugins\\glm-plan-bug\\0.0.1",
+        "version": "0.0.1",
+        "installedAt": "2026-02-11T20:31:01.648Z",
+        "lastUpdated": "2026-02-11T20:31:01.648Z"
+      }
+    ],
+    "frontend-design@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\isa_e\\.claude\\plugins\\cache\\claude-plugins-official\\frontend-design\\2cd88e7947b7",
+        "version": "2cd88e7947b7",
+        "installedAt": "2026-02-11T21:25:34.103Z",
+        "lastUpdated": "2026-02-11T21:25:34.103Z",
+        "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3"
+      }
+    ],
+    "serena@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\isa_e\\.claude\\plugins\\cache\\claude-plugins-official\\serena\\2cd88e7947b7",
+        "version": "2cd88e7947b7",
+        "installedAt": "2026-02-11T21:33:43.617Z",
+        "lastUpdated": "2026-02-11T21:33:43.617Z",
+        "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3"
+      }
+    ],
+    "commit-commands@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\isa_e\\.claude\\plugins\\cache\\claude-plugins-official\\commit-commands\\2cd88e7947b7",
+        "version": "2cd88e7947b7",
+        "installedAt": "2026-02-12T01:56:56.022Z",
+        "lastUpdated": "2026-02-12T01:56:56.022Z",
+        "gitCommitSha": "2cd88e7947b7382e045666abee790c7f55f669f3"
+      }
+    ],
+    "hostinger@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\isa_e\\.claude\\plugins\\cache\\claude-plugins-official\\hostinger\\1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-02-14T14:00:00.000Z",
+        "lastUpdated": "2026-02-14T14:00:00.000Z"
+      }
+    ]
+  }
+}

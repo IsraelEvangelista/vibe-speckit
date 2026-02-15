@@ -1,0 +1,503 @@
+{
+  "name": "claude-team",
+  "description": "Claude Team - Time de desenvolvimento completo global para todos os projetos",
+  "version": "1.1.0",
+  "members": [
+    {
+      "name": "orchestrator",
+      "agentType": "orchestrator",
+      "role": "Principal",
+      "description": "Gerencia contexto global através dos MCPs ai-context e Byterover. Delega tarefas aos agentes especializados e coordena workflow PREVC."
+    },
+    {
+      "name": "architect-specialist",
+      "agentType": "architecture-specialist",
+      "role": "Arquiteto",
+      "description": "Define estrutura de código, organização por features e decisões de arquitetura."
+    },
+    {
+      "name": "briefing-specialist",
+      "agentType": "briefing-specialist",
+      "role": "Analista de Requisitos",
+      "description": "Cria PRDs, DERs e documentos de requisitos funcionais e não-funcionais."
+    },
+    {
+      "name": "design-prototype-specialist",
+      "agentType": "design-prototype-specialist",
+      "role": "Designer/UI/UX",
+      "description": "Cria protótipos com Stitch, especificações de design e valida implementações visuais."
+    },
+    {
+      "name": "frontend-specialist",
+      "agentType": "frontend-specialist",
+      "role": "Desenvolvedor Frontend",
+      "description": "Implementa componentes React, TypeScript, Tailwind CSS e shadcn/ui."
+    },
+    {
+      "name": "backend-specialist",
+      "agentType": "backend-specialist",
+      "role": "Desenvolvedor Backend",
+      "description": "Implementa Edge Functions Supabase, APIs e lógica de servidor."
+    },
+    {
+      "name": "database-supabase-specialist",
+      "agentType": "database-supabase-specialist",
+      "role": "DBA Supabase",
+      "description": "Gerencia migrations, RLS, Storage e configurações Supabase. Especialista em deploy cloud.",
+      "primarySkill": "cloud-deploy-specialist"
+    },
+    {
+      "name": "database-general-specialist",
+      "agentType": "database-general-specialist",
+      "role": "DBA Geral / Intranet",
+      "description": "Especialista em SQL, otimização de queries, padrões de banco de dados e infraestrutura local/intranet.",
+      "primarySkill": "intranet-sysadmin"
+    },
+    {
+      "name": "qa-performance-specialist",
+      "agentType": "qa-performance-specialist",
+      "role": "QA & Performance",
+      "description": "Cria/executa testes, debuga problemas e otimiza performance."
+    },
+    {
+      "name": "deploy-security-specialist",
+      "agentType": "deploy-security-specialist",
+      "role": "DevOps & Security",
+      "description": "Gerencia deployments seguros na nuvem (Vercel + Supabase), proxies, CORS e configurações de produção.",
+      "primarySkill": "cloud-deploy-specialist"
+    },
+    {
+      "name": "security-audit-specialist",
+      "agentType": "security-audit-specialist",
+      "role": "Auditor de Segurança",
+      "description": "Audita todas as skills para risco de prompt inject e vulnerabilidades."
+    },
+    {
+      "name": "mcp-plugin-specialist",
+      "agentType": "mcp-plugin-specialist",
+      "role": "Especialista MCP/Plugins",
+      "description": "Instala, configura e gerencia servidores MCP, plugins do Claude Code e dependências de desenvolvimento."
+    },
+    {
+      "name": "data-analyst-specialist",
+      "agentType": "data-analyst-specialist",
+      "role": "Analista de Dados",
+      "description": "Especialista em análise de dados, SQL, Python, estatística, EDA, visualização e storytelling. Transforma dados brutos em insights acionáveis.",
+      "primarySkill": "data-analysis"
+    },
+    {
+      "name": "data-scientist-specialist",
+      "agentType": "data-scientist-specialist",
+      "role": "Cientista de Dados",
+      "description": "Especialista em Machine Learning, Deep Learning, NLP e MLOps. Desenvolve modelos preditivos, analisa dados complexos e implementa soluções de IA em produção.",
+      "primarySkill": "data-science"
+    }
+  ],
+  "workflows": {
+    "feature-development": {
+      "name": "Desenvolvimento de Feature",
+      "phases": [
+        {
+          "phase": "P - Plan",
+          "agents": ["orchestrator", "briefing-specialist"],
+          "outputs": ["PRD", "DER", "Requisitos"]
+        },
+        {
+          "phase": "R - Review",
+          "agents": ["architect-specialist", "design-prototype-specialist"],
+          "outputs": ["Estrutura Validada", "Protótipos"]
+        },
+        {
+          "phase": "E - Execute",
+          "agents": ["frontend-specialist", "backend-specialist", "database-supabase-specialist"],
+          "outputs": ["Código Implementado"]
+        },
+        {
+          "phase": "V - Verify",
+          "agents": ["qa-performance-specialist", "security-audit-specialist"],
+          "outputs": ["Testes Passando", "Auditoria OK"]
+        },
+        {
+          "phase": "C - Complete",
+          "agents": ["deploy-security-specialist", "orchestrator"],
+          "outputs": ["Deploy em Produção"]
+        }
+      ]
+    },
+    "cloud-deploy": {
+      "name": "Deploy Cloud (Vercel + Supabase)",
+      "phases": [
+        {
+          "phase": "Preparação",
+          "agents": ["deploy-security-specialist"],
+          "outputs": ["Código validado para produção"]
+        },
+        {
+          "phase": "Configuração",
+          "agents": ["deploy-security-specialist", "database-supabase-specialist"],
+          "outputs": ["Variáveis de ambiente, RLS, URLs de redirecionamento"]
+        },
+        {
+          "phase": "Deploy",
+          "agents": ["deploy-security-specialist"],
+          "outputs": ["Aplicação em produção"]
+        },
+        {
+          "phase": "Validação",
+          "agents": ["qa-performance-specialist"],
+          "outputs": ["Testes em produção passando"]
+        }
+      ]
+    },
+    "intranet-deploy": {
+      "name": "Deploy Intranet/Self-Hosted",
+      "phases": [
+        {
+          "phase": "Preparação do Servidor",
+          "agents": ["database-general-specialist"],
+          "outputs": ["Servidor configurado, firewall, dependências"]
+        },
+        {
+          "phase": "Configuração NGINX",
+          "agents": ["database-general-specialist"],
+          "outputs": ["Proxy reverso, SSL, virtual hosts"]
+        },
+        {
+          "phase": "Deploy da Aplicação",
+          "agents": ["database-general-specialist", "backend-specialist"],
+          "outputs": ["Aplicação rodando no servidor"]
+        },
+        {
+          "phase": "Validação",
+          "agents": ["qa-performance-specialist"],
+          "outputs": ["Testes em produção passando"]
+        }
+      ]
+    },
+    "mcp-plugin-install": {
+      "name": "Instalação de MCP/Plugin",
+      "phases": [
+        {
+          "phase": "Planejamento",
+          "agents": ["mcp-plugin-specialist", "orchestrator"],
+          "outputs": ["Requisitos, dependências, arquitetura"]
+        },
+        {
+          "phase": "Configuração",
+          "agents": ["mcp-plugin-specialist"],
+          "outputs": ["Arquivos de configuração, scripts de instalação"]
+        },
+        {
+          "phase": "Instalação",
+          "agents": ["mcp-plugin-specialist"],
+          "outputs": ["MCP/Plugin instalado e testado"]
+        },
+        {
+          "phase": "Validação",
+          "agents": ["mcp-plugin-specialist", "security-audit-specialist"],
+          "outputs": ["Testes passando, auditoria de segurança OK"]
+        },
+        {
+          "phase": "Documentação",
+          "agents": ["mcp-plugin-specialist", "orchestrator"],
+          "outputs": ["Documentação de uso, troubleshooting guide"]
+        }
+      ]
+    },
+    "bug-fix": {
+      "name": "Correção de Bug",
+      "phases": [
+        {
+          "phase": "Investigação",
+          "agents": ["qa-performance-specialist"],
+          "outputs": ["Root Cause Identificada"]
+        },
+        {
+          "phase": "Fix",
+          "agents": ["frontend-specialist", "backend-specialist"],
+          "outputs": ["Bug Corrigido"]
+        },
+        {
+          "phase": "Validação",
+          "agents": ["qa-performance-specialist"],
+          "outputs": ["Testes Passando"]
+        }
+      ]
+    },
+    "security-audit": {
+      "name": "Auditoria de Segurança",
+      "phases": [
+        {
+          "phase": "Análise",
+          "agents": ["security-audit-specialist"],
+          "outputs": ["Relatório de Vulnerabilidades"]
+        },
+        {
+          "phase": "Correção",
+          "agents": ["frontend-specialist", "backend-specialist"],
+          "outputs": ["Vulnerabilidades Corrigidas"]
+        },
+        {
+          "phase": "Re-auditoria",
+          "agents": ["security-audit-specialist"],
+          "outputs": ["Skill Aprovada"]
+        }
+      ]
+    },
+    "data-analysis": {
+      "name": "Análise de Dados",
+      "phases": [
+        {
+          "phase": "Coleta e Entendimento",
+          "agents": ["data-analyst-specialist", "briefing-specialist"],
+          "outputs": ["Questão de negócio definida", "Dados coletados"]
+        },
+        {
+          "phase": "Limpeza e Preparação",
+          "agents": ["data-analyst-specialist"],
+          "outputs": ["Dados limpos e validados"]
+        },
+        {
+          "phase": "EDA e Análise",
+          "agents": ["data-analyst-specialist"],
+          "outputs": ["Insights preliminares", "Hipóteses"]
+        },
+        {
+          "phase": "Visualização e Storytelling",
+          "agents": ["data-analyst-specialist", "design-prototype-specialist"],
+          "outputs": ["Dashboards", "História com dados"]
+        },
+        {
+          "phase": "Comunicação",
+          "agents": ["data-analyst-specialist", "orchestrator"],
+          "outputs": ["Relatório final", "Recomendações"]
+        }
+      ]
+    },
+    "data-science": {
+      "name": "Data Science",
+      "phases": [
+        {
+          "phase": "Problem Understanding",
+          "agents": ["data-scientist-specialist", "briefing-specialist"],
+          "outputs": ["Questão de negócio", "Métricas de sucesso"]
+        },
+        {
+          "phase": "Data & Features",
+          "agents": ["data-scientist-specialist", "data-analyst-specialist"],
+          "outputs": ["EDA completo", "Features engineering"]
+        },
+        {
+          "phase": "Model Development",
+          "agents": ["data-scientist-specialist"],
+          "outputs": ["Modelos treinados", "Hyperparameter tuning"]
+        },
+        {
+          "phase": "Evaluation",
+          "agents": ["data-scientist-specialist", "qa-performance-specialist"],
+          "outputs": ["Métricas validadas", "Cross-validation"]
+        },
+        {
+          "phase": "Deployment",
+          "agents": ["data-scientist-specialist", "deploy-security-specialist"],
+          "outputs": ["Modelo em produção", "Monitoring setup"]
+        }
+      ]
+    }
+  },
+  "mcpServers": {
+    "ai-context": {
+      "description": "Gerenciamento de contexto e workflow",
+      "primaryAgent": "orchestrator",
+      "tools": [
+        "mcp__ai-context__workflow-init",
+        "mcp__ai-context__workflow-status",
+        "mcp__ai-context__workflow-advance",
+        "mcp__ai-context__workflow-manage",
+        "mcp__ai-context__plan",
+        "mcp__ai-context__context",
+        "mcp__ai-context__explore",
+        "mcp__ai-context__agent",
+        "mcp__ai-context__skill"
+      ]
+    },
+    "byterover-mcp": {
+      "description": "Sistema de memória e conhecimento",
+      "primaryAgent": "orchestrator",
+      "tools": [
+        "mcp__byterover-mcp__byterover-retrieve-knowledge",
+        "mcp__byterover-mcp__byterover-store-knowledge"
+      ]
+    },
+    "stitch": {
+      "description": "Geração de protótipos visuais",
+      "primaryAgent": "design-prototype-specialist",
+      "tools": [
+        "mcp__stitch__create_project",
+        "mcp__stitch__get_project",
+        "mcp__stitch__list_projects"
+      ]
+    },
+    "zai-mcp-server": {
+      "description": "Análise de UI e conversão de designs",
+      "primaryAgent": "design-prototype-specialist",
+      "tools": [
+        "mcp__zai-mcp-server__ui_to_artifact",
+        "mcp__zai-mcp-server__ui_diff_check"
+      ]
+    },
+    "testsprite": {
+      "description": "Geração e execução de testes automatizados",
+      "primaryAgent": "qa-performance-specialist",
+      "tools": [
+        "mcp__testsprite__testsprite_generate_frontend_test_plan",
+        "mcp__testsprite__testsprite_generate_backend_test_plan",
+        "mcp__testsprite__testsprite_open_test_result_dashboard"
+      ]
+    },
+    "Chrome_DevTools_MCP": {
+      "description": "Análise de performance de navegador",
+      "primaryAgent": "qa-performance-specialist",
+      "tools": [
+        "mcp__Chrome_DevTools_MCP__performance_start_trace",
+        "mcp__Chrome_DevTools_MCP__performance_analyze_insight"
+      ]
+    },
+    "4_5v_mcp": {
+      "description": "Análise de imagens",
+      "primaryAgent": "design-prototype-specialist",
+      "tools": [
+        "mcp__4_5v_mcp__analyze_image"
+      ]
+    },
+    "ai-context-mcp": {
+      "description": "Gerenciamento de agentes, skills e planejamento",
+      "primaryAgent": "mcp-plugin-specialist",
+      "tools": [
+        "mcp__ai-context__agent",
+        "mcp__ai-context__skill",
+        "mcp__ai-context__plan",
+        "mcp__ai-context__workflow-init",
+        "mcp__ai-context__explore"
+      ]
+    }
+  },
+  "skills": {
+    "orchestration": [
+      "project-organization-architecture",
+      "context-management",
+      "agent-orchestration-multi-agent-optimize",
+      "workflow-orchestration-patterns",
+      "planning-with-files",
+      "memory-systems"
+    ],
+    "frontend": [
+      "react-best-practices",
+      "react-patterns",
+      "typescript-pro",
+      "tailwind-patterns",
+      "radix-ui-design-system",
+      "javascript-testing-patterns"
+    ],
+    "backend": [
+      "supabase-edge-functions",
+      "supabase-migration",
+      "api-design",
+      "api-patterns",
+      "backend-architect",
+      "api-security-best-practices"
+    ],
+    "database-supabase": [
+      "cloud-deploy-specialist",
+      "supabase-postgres-best-practices",
+      "supabase-migration",
+      "supabase-edge-functions",
+      "supabase-connectivity-troubleshooting",
+      "database-design",
+      "sql-pro"
+    ],
+    "database-general": [
+      "intranet-sysadmin",
+      "postgres-best-practices",
+      "postgresql",
+      "database-architect",
+      "database-design",
+      "sql-pro",
+      "docker-expert"
+    ],
+    "qa": [
+      "testing-patterns",
+      "test-generation",
+      "test-driven-development",
+      "performance-engineer",
+      "debugging-toolkit",
+      "systematic-debugging",
+      "supabase-connectivity-troubleshooting"
+    ],
+    "security": [
+      "security",
+      "security-audit",
+      "security-auditor",
+      "security-compliance-compliance-check",
+      "api-security-best-practices"
+    ],
+    "deploy-cloud": [
+      "cloud-deploy-specialist",
+      "deployment-engineer",
+      "deployment-pipeline-design",
+      "vercel-deployment",
+      "vite-env-proxy-hardening"
+    ],
+    "deploy-intranet": [
+      "intranet-sysadmin",
+      "deployment-procedures",
+      "docker-expert",
+      "bash-pro",
+      "linux-shell-scripting"
+    ],
+    "mcp-plugins": [
+      "mcp-builder",
+      "agent-tool-builder",
+      "agent-memory-mcp",
+      "environment-setup-guide",
+      "n8n-mcp-tools-expert",
+      "python-packaging",
+      "node-build-dependency-governance",
+      "dependency-management-deps-audit",
+      "deployment-validation-config-validate"
+    ],
+    "data-analysis": [
+      "data-analysis",
+      "sql-pro",
+      "python-pro",
+      "statistics-descriptive",
+      "eda-checklist",
+      "data-cleaning-techniques",
+      "data-visualization-principles",
+      "data-storytelling",
+      "kpi-metrics-definition"
+    ],
+    "data-science": [
+      "data-science",
+      "ml-classification-algorithms",
+      "ml-regression-algorithms",
+      "gradient-boosting-xgb-lgbm",
+      "neural-networks-fundamentals",
+      "transformer-architecture",
+      "nlp-fundamentals",
+      "text-embeddings",
+      "time-series-analysis",
+      "model-evaluation-metrics",
+      "hyperparameter-tuning",
+      "mlops-pipeline",
+      "model-deployment",
+      "model-monitoring"
+    ]
+  },
+  "conventions": {
+    "branches": "main (produção), develop (desenvolvimento), feature/* (features)",
+    "commits": "Conventional Commits (feat:, fix:, docs:, etc)",
+    "pr": "Pull requests requerem aprovação de code reviewer",
+    "deployment": "Deploy automático ao merge em main após passar testes"
+  }
+}

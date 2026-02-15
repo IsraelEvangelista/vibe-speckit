@@ -1,0 +1,8 @@
+[
+  {
+    "from": "team-lead",
+    "text": "{\"type\":\"shutdown_request\",\"requestId\":\"shutdown-1770937874552@supabase-specialist\",\"from\":\"team-lead\",\"reason\":\"Problema identificado: CORS. O domínio https://finmanage.com.br não está autorizado no Supabase. Solução requer ação manual no dashboard: Authentication > URL Configuration > adicionar Site URL e Redirect URLs. Pode encerrar a investigação.\",\"timestamp\":\"2026-02-12T23:11:14.552Z\"}",
+    "timestamp": "2026-02-12T23:11:14.552Z",
+    "read": false
+  }
+]

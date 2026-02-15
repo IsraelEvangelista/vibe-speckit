@@ -1,0 +1,220 @@
+[
+  {
+    "from": "security-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"security-auditor\",\"timestamp\":\"2026-02-12T02:28:00.536Z\",\"idleReason\":\"available\",\"summary\":\"[to orchestrator] Auditoria segurança completada - 7 vulnerabilidades críticas identificadas\"}",
+    "timestamp": "2026-02-12T02:28:00.536Z",
+    "color": "green",
+    "read": true
+  },
+  {
+    "from": "performance-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"performance-auditor\",\"timestamp\":\"2026-02-12T02:28:05.601Z\",\"idleReason\":\"available\",\"summary\":\"[to orchestrator] Relatório completo análise escalabilidade e performance\"}",
+    "timestamp": "2026-02-12T02:28:05.601Z",
+    "color": "yellow",
+    "read": true
+  },
+  {
+    "from": "security-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"security-auditor\",\"timestamp\":\"2026-02-12T02:28:07.130Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-12T02:28:07.130Z",
+    "color": "green",
+    "read": true
+  },
+  {
+    "from": "performance-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"performance-auditor\",\"timestamp\":\"2026-02-12T02:28:27.490Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-12T02:28:27.490Z",
+    "color": "yellow",
+    "read": true
+  },
+  {
+    "from": "deploy-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"deploy-auditor\",\"timestamp\":\"2026-02-12T02:28:47.011Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-12T02:28:47.011Z",
+    "color": "purple",
+    "read": true
+  },
+  {
+    "from": "deploy-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"deploy-auditor\",\"timestamp\":\"2026-02-12T02:28:56.820Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-12T02:28:56.820Z",
+    "color": "purple",
+    "read": true
+  },
+  {
+    "from": "deploy-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"deploy-auditor\",\"timestamp\":\"2026-02-12T02:29:10.721Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-12T02:29:10.721Z",
+    "color": "purple",
+    "read": true
+  },
+  {
+    "from": "architect-auditor",
+    "text": "# Análise Completa da Estrutura e Arquitetura - FinManage\n\n## RESUMO EXECUTIVO\n\nO projeto FinManage é uma **aplicação monorepo híbrida** que contém:\n1. **Aplicação Web Principal** (React + TypeScript + Vite)\n2. **Módulo de Analytics** (Python)\n3. **Infraestrutura Supabase** (Edge Functions, Database)\n\n---\n\n## 1. ORGANIZAÇÃO POO E ESTRUTURA DE TIPOS\n\n### Estrutura de Tipos (POO)\n**Localização**: `src/types/` e `src/pages/*/page-types.ts`\n\n**Avaliação**: ⚠️ **MODERADA** - Funcional mas com problemas\n\n**Problemas Identificados**:\n\n1. **Tipos Duplicados** (Gravidade: ALTA)\n   - `Fornecedor`, `CartaoTipo`, `Despesa` definidos em múltiplos arquivos\n   - `src/pages/cartao/cartao-types.ts` define `Fornecedor`, `CartaoTipo`\n   - `src/pages/despesas/despesas-types.ts` redefine os mesmos tipos\n   - `src/types/supabase.ts` (gerado) também contém versões\n\n2. **Sem Herança/Composição** (Gravidade: MÉDIA)\n   - Interfaces são puramente DTOs, sem comportamento\n   - Não há classes com métodos, apenas interfaces TypeScript\n   - Padrão funcional, mas sem reuso de lógica\n\n3. **Separação de Types por Feature** (Positivo)\n   - `dashboard-types.ts`, `cartao-types.ts`, `despesas-types.ts`\n   - Bom encapsulamento de domínio específico\n\n### Hierarquia de Componentes\n\n**Avaliação**: ✅ **BOA**\n\n**Pontos Fortes**:\n- Excel: modularização exemplar com barrel exports (`index.ts`)\n- Separação clara entre UI, lógica e dados\n- Hook `useAuthUser` com cache eficiente (30s TTL)\n\n---\n\n## 2. MONOREPO VS MULTIREPO\n\n### Estrutura Atual: **MONOREPO INFORMAL**\n\nO projeto é de fato um monorepo informal com:\n\n1. **Aplicação Principal** (`/src`) - React SPA\n2. **Analytics Module** (`/analytics`) - Python scripts\n3. **Infraestrutura Compartilhada** - Supabase\n\n### Veredito: **DEVERIA SER MONOREPO FORMAL**\n\n**Recomendação: TURBOREPO ou NX**\n\nTransformar em monorepo formal com:\n\n```\nfinmanage/\n├── apps/\n│   ├── web/              # React app (atual /src)\n│   └── analytics/        # Python analytics\n├── packages/\n│   ├── shared-types/      # Tipos Supabase compartilhados\n│   ├── ui/              # Componentes UI reutilizáveis\n│   └── config/          # ESLint, TSConfig compartilhados\n├── supabase/           # Migrations e Edge Functions\n└── turbo.json\n```\n\n---\n\n## 3. PROBLEMAS CRÍTICOS\n\n### 🔴 CRÍTICOS\n\n1. **TypeScript Flags Muito Permissivas**\n   ```json\n   {\n     \"noImplicitAny\": false,\n     \"strictNullChecks\": false\n   }\n   ```\n\n2. **Supabase Types Gerados vs Manual**\n   - Risco de divergência entre tipos\n\n### 🟡 IMPORTANTES\n\n3. **Componentes Gigantescos**\n   - `DashboardNew.tsx`: 2000+ linhas\n\n4. **Módulo Analytics Desconectado**\n   - Python scripts não são integrados ao app\n\n---\n\n## 4. RECOMENDAÇÕES\n\n### Imediatas\n\n1. Habilitar TypeScript strict mode\n2. Consolidar tipos duplicados\n3. Extrair lógica do Dashboard\n\n### Curto Prazo\n\n4. Implementar monorepo formal (Turborepo)\n5. Adicionar Domain Layer\n\n---\n\n## CONCLUSÃO\n\nA arquitetura atual é **funcional mas carece de formalização**. O monorepo informal deve se tornar formal com Turborepo. A organização de tipos precisa de consolidação urgente.",
+    "summary": "Análise arquitetura completa finalizada",
+    "timestamp": "2026-02-12T02:29:18.445Z",
+    "color": "blue",
+    "read": true
+  },
+  {
+    "from": "performance-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"performance-auditor\",\"timestamp\":\"2026-02-12T02:29:22.228Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-12T02:29:22.228Z",
+    "color": "yellow",
+    "read": true
+  },
+  {
+    "from": "architect-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"architect-auditor\",\"timestamp\":\"2026-02-12T02:29:26.459Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-12T02:29:26.459Z",
+    "color": "blue",
+    "read": true
+  },
+  {
+    "from": "architect-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"architect-auditor\",\"timestamp\":\"2026-02-12T02:29:34.328Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-12T02:29:34.328Z",
+    "color": "blue",
+    "read": true
+  },
+  {
+    "from": "security-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"security-auditor\",\"timestamp\":\"2026-02-12T02:29:39.600Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-12T02:29:39.600Z",
+    "color": "green",
+    "read": true
+  },
+  {
+    "from": "architect-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"architect-auditor\",\"timestamp\":\"2026-02-12T02:29:47.173Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-12T02:29:47.173Z",
+    "color": "blue",
+    "read": true
+  },
+  {
+    "from": "deploy-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"deploy-auditor\",\"timestamp\":\"2026-02-12T02:29:48.510Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-12T02:29:48.510Z",
+    "color": "purple",
+    "read": true
+  },
+  {
+    "from": "security-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"security-auditor\",\"timestamp\":\"2026-02-12T02:30:04.049Z\",\"idleReason\":\"available\",\"summary\":\"[to orchestrator] Relatório final security-audit - 20 vulnerabilidades (7 críticas)\"}",
+    "timestamp": "2026-02-12T02:30:04.049Z",
+    "color": "green",
+    "read": true
+  },
+  {
+    "from": "security-auditor",
+    "text": "{\"type\":\"shutdown_approved\",\"requestId\":\"shutdown-1770863398607@security-auditor\",\"from\":\"security-auditor\",\"timestamp\":\"2026-02-12T02:30:06.563Z\",\"paneId\":\"in-process\",\"backendType\":\"in-process\"}",
+    "timestamp": "2026-02-12T02:30:06.563Z",
+    "color": "green",
+    "read": true
+  },
+  {
+    "from": "architect-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"architect-auditor\",\"timestamp\":\"2026-02-12T02:30:11.398Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-12T02:30:11.398Z",
+    "color": "blue",
+    "read": true
+  },
+  {
+    "from": "architect-auditor",
+    "text": "{\"type\":\"shutdown_approved\",\"requestId\":\"shutdown-1770863398604@architect-auditor\",\"from\":\"architect-auditor\",\"timestamp\":\"2026-02-12T02:30:14.017Z\",\"paneId\":\"in-process\",\"backendType\":\"in-process\"}",
+    "timestamp": "2026-02-12T02:30:14.017Z",
+    "color": "blue",
+    "read": true
+  },
+  {
+    "from": "deploy-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"deploy-auditor\",\"timestamp\":\"2026-02-12T02:30:17.462Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-12T02:30:17.462Z",
+    "color": "purple",
+    "read": true
+  },
+  {
+    "from": "deploy-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"deploy-auditor\",\"timestamp\":\"2026-02-12T02:30:22.925Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-12T02:30:22.925Z",
+    "color": "purple",
+    "read": true
+  },
+  {
+    "from": "deploy-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"deploy-auditor\",\"timestamp\":\"2026-02-12T02:30:33.902Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-12T02:30:33.902Z",
+    "color": "purple",
+    "read": true
+  },
+  {
+    "from": "performance-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"performance-auditor\",\"timestamp\":\"2026-02-12T02:30:47.923Z\",\"idleReason\":\"available\",\"summary\":\"[to orchestrator] RELATORIO FINAL - Auditoria completa FinManage\"}",
+    "timestamp": "2026-02-12T02:30:47.923Z",
+    "color": "yellow",
+    "read": true
+  },
+  {
+    "from": "performance-auditor",
+    "text": "{\"type\":\"shutdown_approved\",\"requestId\":\"shutdown-1770863398610@performance-auditor\",\"from\":\"performance-auditor\",\"timestamp\":\"2026-02-12T02:30:49.467Z\",\"paneId\":\"in-process\",\"backendType\":\"in-process\"}",
+    "timestamp": "2026-02-12T02:30:49.467Z",
+    "color": "yellow",
+    "read": true
+  },
+  {
+    "from": "deploy-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"deploy-auditor\",\"timestamp\":\"2026-02-12T02:31:39.974Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-12T02:31:39.974Z",
+    "color": "purple",
+    "read": true
+  },
+  {
+    "from": "deploy-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"deploy-auditor\",\"timestamp\":\"2026-02-12T02:33:48.269Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-12T02:33:48.269Z",
+    "color": "purple",
+    "read": true
+  },
+  {
+    "from": "deploy-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"deploy-auditor\",\"timestamp\":\"2026-02-12T02:41:08.162Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-12T02:41:08.162Z",
+    "color": "purple",
+    "read": true
+  },
+  {
+    "from": "deploy-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"deploy-auditor\",\"timestamp\":\"2026-02-12T02:55:40.457Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-12T02:55:40.457Z",
+    "color": "purple",
+    "read": true
+  },
+  {
+    "from": "deploy-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"deploy-auditor\",\"timestamp\":\"2026-02-12T02:55:58.858Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-12T02:55:58.858Z",
+    "color": "purple",
+    "read": true
+  },
+  {
+    "from": "deploy-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"deploy-auditor\",\"timestamp\":\"2026-02-12T02:56:24.297Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-12T02:56:24.297Z",
+    "color": "purple",
+    "read": true
+  },
+  {
+    "from": "deploy-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"deploy-auditor\",\"timestamp\":\"2026-02-12T02:57:18.253Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-12T02:57:18.253Z",
+    "color": "purple",
+    "read": true
+  },
+  {
+    "from": "deploy-auditor",
+    "text": "{\"type\":\"idle_notification\",\"from\":\"deploy-auditor\",\"timestamp\":\"2026-02-12T03:01:52.493Z\",\"idleReason\":\"available\"}",
+    "timestamp": "2026-02-12T03:01:52.493Z",
+    "color": "purple",
+    "read": true
+  }
+]

@@ -1,0 +1,8 @@
+[
+  {
+    "from": "team-lead",
+    "text": "{\"type\":\"shutdown_request\",\"requestId\":\"shutdown-1770937874548@qa-specialist\",\"from\":\"team-lead\",\"reason\":\"O problema foi identificado como CORS no Supabase. Não precisamos de mais análise de lint por enquanto. O usuário precisa corrigir a configuração no dashboard do Supabase primeiro.\",\"timestamp\":\"2026-02-12T23:11:14.548Z\"}",
+    "timestamp": "2026-02-12T23:11:14.548Z",
+    "read": false
+  }
+]

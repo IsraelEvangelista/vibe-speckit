@@ -1,0 +1,61 @@
+{
+  "name": "deploy-investigation",
+  "description": "Investigação de erro de produção Vercel/Supabase",
+  "createdAt": 1770937142075,
+  "leadAgentId": "team-lead@deploy-investigation",
+  "leadSessionId": "fa8e40d7-c33a-44b1-83d9-15bf3109c1bf",
+  "members": [
+    {
+      "agentId": "team-lead@deploy-investigation",
+      "name": "team-lead",
+      "agentType": "orchestrator",
+      "model": "glm-5",
+      "joinedAt": 1770937142075,
+      "tmuxPaneId": "",
+      "cwd": "c:\\Israel\\Projetos Trae\\FinManage",
+      "subscriptions": []
+    },
+    {
+      "agentId": "deploy-specialist@deploy-investigation",
+      "name": "deploy-specialist",
+      "agentType": "deploy-security-specialist",
+      "model": "claude-opus-4-6",
+      "prompt": "Você é o especialista em deploy cloud (Vercel). Investigue o problema de produção:\n\n1. Verifique o arquivo vercel.json se existe e sua configuração\n2. Verifique as variáveis de ambiente necessárias (VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY, etc.)\n3. Analise o package.json para scripts de build\n4. Verifique se há arquivos de configuração que possam estar causando problemas\n5. Identifique possíveis causas do erro 500/timeout em produção\n\nContexto: O projeto FinManage é um frontend React/Vite que se conecta ao Supabase. O sistema caiu em produção.\n\nForneça um diagnóstico detalhado com causas prováveis e correções recomendadas.",
+      "color": "blue",
+      "planModeRequired": false,
+      "joinedAt": 1770937160168,
+      "tmuxPaneId": "in-process",
+      "cwd": "c:\\Israel\\Projetos Trae\\FinManage",
+      "subscriptions": [],
+      "backendType": "in-process"
+    },
+    {
+      "agentId": "supabase-specialist@deploy-investigation",
+      "name": "supabase-specialist",
+      "agentType": "database-supabase-specialist",
+      "model": "claude-opus-4-6",
+      "prompt": "Você é o especialista em Supabase. Investigue o problema de produção:\n\n1. Verifique as configurações do Supabase no projeto (src/integrations/supabase/)\n2. Analise as políticas RLS que podem estar bloqueando acessos\n3. Verifique se há Edge Functions que podem estar falhando\n4. Identifique problemas de conexão ou autenticação\n5. Revise as migrations recentes que podem ter causado problemas\n\nContexto: O projeto FinManage usa Supabase como backend. O sistema caiu em produção mostrando erro na interface.\n\nUse as ferramentas MCP do supabase_finmanage para:\n- Verificar logs do projeto (get_logs)\n- Listar migrations (list_migrations)\n- Verificar tabelas (list_tables)\n\nForneça um diagnóstico detalhado com causas prováveis e correções recomendadas.",
+      "color": "green",
+      "planModeRequired": false,
+      "joinedAt": 1770937160168,
+      "tmuxPaneId": "in-process",
+      "cwd": "c:\\Israel\\Projetos Trae\\FinManage",
+      "subscriptions": [],
+      "backendType": "in-process"
+    },
+    {
+      "agentId": "qa-specialist@deploy-investigation",
+      "name": "qa-specialist",
+      "agentType": "qa-performance-specialist",
+      "model": "claude-opus-4-6",
+      "prompt": "Você é o especialista em QA e debugging. Investigue o problema:\n\n1. Verifique os commits recentes que podem ter introduzido o bug\n2. Analise o código que pode estar falhando em produção\n3. Verifique se há erros de TypeScript ou build que passaram despercebidos\n4. Identifique padrões de código que podem causar problemas em produção\n\nContexto: O sistema caiu em produção. Use git log para ver commits recentes e identifique mudanças arriscadas.\n\nForneça um diagnóstico detalhado com causas prováveis e correções recomendadas.",
+      "color": "yellow",
+      "planModeRequired": false,
+      "joinedAt": 1770937160170,
+      "tmuxPaneId": "in-process",
+      "cwd": "c:\\Israel\\Projetos Trae\\FinManage",
+      "subscriptions": [],
+      "backendType": "in-process"
+    }
+  ]
+}

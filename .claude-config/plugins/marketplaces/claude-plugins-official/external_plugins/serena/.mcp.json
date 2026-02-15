@@ -1,0 +1,9 @@
+﻿{
+    "serena":  {
+                   "command":  "C:\\Users\\isa_e\\AppData\\Local\\Programs\\Python\\Python311\\Scripts\\serena.exe",
+                   "args":  [
+                                "start-mcp-server",
+                                "--project-from-cwd"
+                            ]
+               }
+}

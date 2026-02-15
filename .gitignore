@@ -1,4 +1,4 @@
-
+# Arquivos de regras de outras IDEs
 .clinerules/byterover-rules.md
 .kilocode/rules/byterover-rules.md
 .roo/rules/byterover-rules.md
@@ -7,3 +7,26 @@
 .kiro/steering/byterover-rules.md
 .qoder/rules/byterover-rules.md
 .augment/rules/byterover-rules.md
+
+# Arquivos com tokens sensíveis - NUNCA commitar
+.claude-config/settings.json
+*.env
+.env.*
+
+# Cache e temporários
+cache/
+logs/
+*.log
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Windows reserved names (from 2>nul redirects)
+nul
+
+# IDE
+.idea/
+.vscode/
+*.swp

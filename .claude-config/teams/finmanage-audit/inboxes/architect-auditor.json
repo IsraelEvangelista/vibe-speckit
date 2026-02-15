@@ -1,0 +1,35 @@
+[
+  {
+    "from": "team-lead",
+    "text": "{\"type\":\"task_assignment\",\"taskId\":\"1\",\"subject\":\"Análise de Estrutura e Arquitetura (POO/Monorepo)\",\"description\":\"Analisar organização de código, padrões POO, estrutura monorepo vs multirepo, organização de pastas e módulos, separação de responsabilidades, dependências entre módulos.\",\"assignedBy\":\"team-lead\",\"timestamp\":\"2026-02-12T02:26:43.290Z\"}",
+    "timestamp": "2026-02-12T02:26:43.290Z",
+    "read": true
+  },
+  {
+    "from": "team-lead",
+    "text": "Por favor, reporte o status da sua análise de arquitetura. Quais foram suas descobertas sobre a estrutura POO e organização monorepo/multirepo?",
+    "summary": "Verificar status da análise",
+    "timestamp": "2026-02-12T02:28:30.518Z",
+    "read": true
+  },
+  {
+    "from": "team-lead",
+    "text": "Todas as tasks foram marcadas como completadas. Por favor, enviem imediatamente seus relatórios finais consolidados ao orchestrator com:\n1. Descobertas principais\n2. Problemas identificados (com gravidade)\n3. Localização (arquivo:linha quando aplicável)\n4. Recomendações priorizadas\n\nPreciso consolidar tudo em um relatório final para o usuário.",
+    "summary": "Solicitar relatórios finais consolidados",
+    "timestamp": "2026-02-12T02:28:41.161Z",
+    "read": true
+  },
+  {
+    "from": "team-lead",
+    "text": "URGENTE - Projeto não é repositório Git (fatal: not a git repository).\n\nPor favor, enviem imediatamente seus relatórios finais com:\n1. Todos os problemas encontrados (CRÍTICOS, ALTOS, MÉDIOS, BAIXOS)\n2. Localização exata (arquivo:linha)\n3. Recomendações priorizadas\n\nPreciso consolidar em relatório final para o usuário AGORA.",
+    "summary": "Solicitação URGENTE relatórios finais",
+    "timestamp": "2026-02-12T02:29:10.476Z",
+    "read": false
+  },
+  {
+    "from": "team-lead",
+    "text": "{\"type\":\"shutdown_request\",\"requestId\":\"shutdown-1770863398604@architect-auditor\",\"from\":\"team-lead\",\"reason\":\"Muito obrigado pelos relatórios detalhados. Sua análise foi fundamental.\\n\\nPor favor, façam shutdown e retornem ao pool. O orchestrator vai consolidar o relatório final para o usuário.\",\"timestamp\":\"2026-02-12T02:29:58.604Z\"}",
+    "timestamp": "2026-02-12T02:29:58.604Z",
+    "read": true
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "name": "finmanage-audit",
+  "description": "Auditoria completa do projeto FinManage: POO, monorepo/multirepo, escalabilidade, segurança, variáveis, deploy e commits",
+  "createdAt": 1770863165583,
+  "leadAgentId": "team-lead@finmanage-audit",
+  "leadSessionId": "d3fb5c20-c394-42c0-a3e1-da71c071e873",
+  "members": [
+    {
+      "agentId": "team-lead@finmanage-audit",
+      "name": "team-lead",
+      "agentType": "orchestrator",
+      "model": "glm-4.7",
+      "joinedAt": 1770863165583,
+      "tmuxPaneId": "",
+      "cwd": "C:\\Israel\\Projetos Trae\\FinManage",
+      "subscriptions": []
+    },
+    {
+      "agentId": "deploy-auditor@finmanage-audit",
+      "name": "deploy-auditor",
+      "agentType": "deploy-security-specialist",
+      "model": "claude-opus-4-6",
+      "prompt": "Você é o deploy-security-specialist. Execute uma auditoria de deploy, commits e CI/CD do projeto FinManage localizado em C:\\Israel\\Projetos Trae\\FinManage.\n\nFOCO PRINCIPAL:\n1. **Deploy**: Como é feito o deploy? Vercel, Netlify, manual?\n2. **CI/CD**: Há GitHub Actions? Pipeline automatizado?\n3. **Commits**: Estrutura de mensagens, conventional commits?\n4. **Versionamento**: Semver? Tags? Releases?\n5. **Ambientes**: Separação dev/staging/production?\n6. **Rollback**: Há estratégia de rollback?\n7. **Configurações de build**: Vite config, tsconfig, etc.\n\nINSTRUÇÕES:\n1. Analise package.json scripts\n2. Verifique configuração do Vite\n3. Procure por GitHub Actions (.github/workflows)\n4. Analise histórico de commits (git log)\n5. Verifique configurações de deploy (vercel.json, netlify.toml)\n6. Analise variáveis de ambiente por ambiente\n\nAo final, reporte suas descobertas ao orchestrator com:\n- Estado atual do pipeline CI/CD\n- Problemas de configuração\n- Melhorias necessárias no processo de deploy\n- Recomendações para estrutura de commits\n\nNÃO faça alterações de código - apenas análise e recomendações.",
+      "color": "purple",
+      "planModeRequired": false,
+      "joinedAt": 1770863197169,
+      "tmuxPaneId": "in-process",
+      "cwd": "C:\\Israel\\Projetos Trae\\FinManage",
+      "subscriptions": [],
+      "backendType": "in-process"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+[
+  {
+    "from": "team-lead",
+    "text": "{\"type\":\"task_assignment\",\"taskId\":\"3\",\"subject\":\"Análise de Escalabilidade e Performance\",\"description\":\"Avaliar escalabilidade do código, queries SQL, otimizações de performance, uso de índices, caching, lazy loading, tratamento de dados em volume.\",\"assignedBy\":\"team-lead\",\"timestamp\":\"2026-02-12T02:26:43.295Z\"}",
+    "timestamp": "2026-02-12T02:26:43.295Z",
+    "read": true
+  },
+  {
+    "from": "team-lead",
+    "text": "Por favor, envie seu relatório detalhado de análise de escalabilidade e performance, incluindo gargalos identificados, queries ineficientes e recomendações de otimização.",
+    "summary": "Solicitar relatório detalhado",
+    "timestamp": "2026-02-12T02:28:30.512Z",
+    "read": true
+  },
+  {
+    "from": "team-lead",
+    "text": "Todas as tasks foram marcadas como completadas. Por favor, enviem imediatamente seus relatórios finais consolidados ao orchestrator com:\n1. Descobertas principais\n2. Problemas identificados (com gravidade)\n3. Localização (arquivo:linha quando aplicável)\n4. Recomendações priorizadas\n\nPreciso consolidar tudo em um relatório final para o usuário.",
+    "summary": "Solicitar relatórios finais consolidados",
+    "timestamp": "2026-02-12T02:28:41.164Z",
+    "read": true
+  },
+  {
+    "from": "team-lead",
+    "text": "URGENTE - Projeto não é repositório Git (fatal: not a git repository).\n\nPor favor, enviem imediatamente seus relatórios finais com:\n1. Todos os problemas encontrados (CRÍTICOS, ALTOS, MÉDIOS, BAIXOS)\n2. Localização exata (arquivo:linha)\n3. Recomendações priorizadas\n\nPreciso consolidar em relatório final para o usuário AGORA.",
+    "summary": "Solicitação URGENTE relatórios finais",
+    "timestamp": "2026-02-12T02:29:10.479Z",
+    "read": false
+  },
+  {
+    "from": "team-lead",
+    "text": "{\"type\":\"shutdown_request\",\"requestId\":\"shutdown-1770863398610@performance-auditor\",\"from\":\"team-lead\",\"reason\":\"Muito obrigado pela análise de performance. Por favor, faça shutdown e retorne ao pool.\",\"timestamp\":\"2026-02-12T02:29:58.610Z\"}",
+    "timestamp": "2026-02-12T02:29:58.610Z",
+    "read": true
+  },
+  {
+    "from": "team-lead",
+    "text": "{\"type\":\"shutdown_request\",\"requestId\":\"shutdown-1770863429641@performance-auditor\",\"from\":\"team-lead\",\"reason\":\"Por favor, aprovem o shutdown e retornem ao pool. A auditoria está completa.\",\"timestamp\":\"2026-02-12T02:30:29.641Z\"}",
+    "timestamp": "2026-02-12T02:30:29.641Z",
+    "read": false
+  }
+]
