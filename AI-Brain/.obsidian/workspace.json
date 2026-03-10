@@ -1,0 +1,216 @@
+{
+  "main": {
+    "id": "74ebef07cdc20e1f",
+    "type": "split",
+    "children": [
+      {
+        "id": "2141cb5ae0167e13",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5a31af86b6d36284",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Visualização em gráfico"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "148db8eab9ea0e7b",
+    "type": "split",
+    "children": [
+      {
+        "id": "de2bb924784d6c98",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "27fb90eb6a56ace8",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Explorador de arquivos"
+            }
+          },
+          {
+            "id": "a27a74bd8aecff49",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Procurar"
+            }
+          },
+          {
+            "id": "49877b81c0de8ac3",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Marcadores"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "c126511b998e6f50",
+    "type": "split",
+    "children": [
+      {
+        "id": "2ca8bb5fca1ddf90",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5dcb03eb4d700844",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Links inversos"
+            }
+          },
+          {
+            "id": "54efc87e3899052f",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Links de saída"
+            }
+          },
+          {
+            "id": "1bb094442965805d",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Etiquetas"
+            }
+          },
+          {
+            "id": "44ef275384f50972",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "Todas as propriedades"
+            }
+          },
+          {
+            "id": "a78c003fab54d892",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Sumário"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Abrir a troca rápida": false,
+      "graph:Abrir visualização em gráfico": false,
+      "canvas:Criar novo canvas": false,
+      "daily-notes:Abrir a nota de hoje": false,
+      "templates:Inserir modelo": false,
+      "command-palette:Abrir paleta de comandos": false,
+      "bases:Criar nova base": false
+    }
+  },
+  "active": "5a31af86b6d36284",
+  "lastOpenFiles": [
+    "Sem título.canvas",
+    "01-Personas/claude-code/persona-ai-developer.md",
+    "02-Skills/codex-process-automation/SKILL.md",
+    "02-Skills/codex-process-automation",
+    "01-Personas/codex/persona-automation-process-specialist.md",
+    "00-Meta/orchestrator.md",
+    "00-Meta/codex-routing-registry.md",
+    "03-Knowledge-Base/AI-Development/Codex/codex-enterprise-teams.md",
+    "01-Personas/codex/persona-frontend-design-specialist.md",
+    "01-Personas/codex/persona-python-specialist.md",
+    "01-Personas/codex/persona-data-scientist.md",
+    "01-Personas/codex/persona-public-procurement-specialist.md",
+    "01-Personas/codex/persona-financial-accounting-specialist.md",
+    "01-Personas/codex/persona-scrum-master.md",
+    "01-Personas/codex/persona-product-owner.md",
+    "01-Personas/codex/persona-business-risk-compliance-analyst.md",
+    "01-Personas/codex/persona-legal-contracts-specialist.md",
+    "01-Personas/codex/persona-legal-legislative-specialist.md",
+    "01-Personas/codex/persona-legal-labor-specialist.md",
+    "01-Personas/codex/persona-legal-analyst.md",
+    "01-Personas/codex/persona-dpo.md",
+    "02-Skills/codex-frontend-design/SKILL.md",
+    "02-Skills/codex-analytics-bi/SKILL.md",
+    "02-Skills/codex-data-science-python/SKILL.md",
+    "02-Skills/codex-public-procurement/SKILL.md",
+    "02-Skills/codex-finance-accounting/SKILL.md",
+    "02-Skills/codex-product-delivery/SKILL.md",
+    "02-Skills/codex-analytics-bi",
+    "02-Skills/codex-data-science-python",
+    "02-Skills/codex-public-procurement",
+    "02-Skills/codex-frontend-design",
+    "02-Skills/codex-product-delivery",
+    "02-Skills/codex-governance-legal",
+    "02-Skills/codex-finance-accounting"
+  ]
+}
